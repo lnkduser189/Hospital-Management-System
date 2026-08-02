@@ -1,141 +1,105 @@
+// ==============================
+// Hospital Appointment Management System
+// ==============================
 
+// Check if appointment form exists
+const form = document.getElementById("appointmentForm");
 
+if (form) {
 
+    form.addEventListener("submit", function (event) {
 
+        event.preventDefault();
 
+        const appointment = {
 
-let form = document.getElementById("appointmentForm");
+            name: document.getElementById("name").value,
 
+            email: document.getElementById("email").value,
 
+            doctor: document.getElementById("doctor").value,
 
-form.addEventListener("submit", function(event){
+            date: document.getElementById("date").value,
 
+            time: document.getElementById("time").value
 
-    event.preventDefault();
+        };
 
+        // Get existing appointments
+        let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
+        // Add new appointment
+        appointments.push(appointment);
 
-    let appointment = {
+        // Save to localStorage
+        localStorage.setItem("appointments", JSON.stringify(appointments));
 
+        alert("Appointment Booked Successfully!");
 
-        name:
-        document.getElementById("name").value,
+        form.reset();
 
+        // Redirect to My Appointments page
+        window.location.href = "appointments.html";
 
-        email:
-        document.getElementById("email").value,
+    });
 
+}
 
-        doctor:
-        document.getElementById("doctor").value,
 
 
-        date:
-        document.getElementById("date").value,
+// ==============================
+// Display Appointments
+// ==============================
 
+function displayAppointments() {
 
-        time:
-        document.getElementById("time").value
+    const appointmentList = document.getElementById("appointmentList");
 
+    // If not on appointments page, stop here
+    if (!appointmentList) {
+        return;
+    }
 
-    };
+    const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
+    appointmentList.innerHTML = "";
 
+    if (appointments.length === 0) {
 
-    // Get old appointments
+        appointmentList.innerHTML = `
+            <div class="no-appointments">
+                <h2>No Appointments Booked</h2>
+                <p>Book your first appointment from the Appointment page.</p>
+            </div>
+        `;
 
-    let appointments =
-    JSON.parse(localStorage.getItem("appointments")) || [];
+        return;
 
+    }
 
+    appointments.forEach(function (appointment, index) {
 
-    // Add new appointment
+        const card = document.createElement("div");
 
-    appointments.push(appointment);
+        card.className = "appointment-card";
 
+        card.innerHTML = `
 
+            <h3>${appointment.name}</h3>
 
-    // Save data
+            <p><strong>Email:</strong> ${appointment.email}</p>
 
-    localStorage.setItem(
-        "appointments",
-        JSON.stringify(appointments)
-    );
+            <p><strong>Doctor:</strong> ${appointment.doctor}</p>
 
+            <p><strong>Date:</strong> ${appointment.date}</p>
 
+            <p><strong>Time:</strong> ${appointment.time}</p>
 
-    alert("Appointment Booked Successfully!");
+            <button onclick="cancelAppointment(${index})">
+                Cancel Appointment
+            </button>
 
-
-
-    form.reset();
-
-
-
-    displayAppointments();
-
-
-});
-
-
-
-
-
-
-function displayAppointments(){
-
-
-    let appointmentList =
-    document.getElementById("appointmentList");
-
-
-
-    appointmentList.innerHTML="";
-
-
-
-    let appointments =
-    JSON.parse(localStorage.getItem("appointments")) || [];
-
-
-
-    appointments.forEach(function(app,index){
-
-
-
-        let card =
-        document.createElement("div");
-
-
-
-        card.className="appointment-card";
-
-
-
-        card.innerHTML=`
-
-<h3>${app.name}</h3>
-
-<p>
-Doctor: ${app.doctor}
-</p>
-
-<p>
-Date: ${app.date}
-</p>
-
-<p>
-Time: ${app.time}
-</p>
-
-
-<button onclick="cancelAppointment(${index})">
-Cancel Appointment
-</button>
-
-`;
-
-
+        `;
 
         appointmentList.appendChild(card);
 
@@ -144,38 +108,37 @@ Cancel Appointment
     });
 
 
-
+    
 }
 
 
 
-// Display saved appointments when page loads
+// ==============================
+// Cancel Appointment
+// ==============================
 
-displayAppointments();
-function cancelAppointment(index){
+function cancelAppointment(index) {
 
+    let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
-    let appointments =
-    JSON.parse(localStorage.getItem("appointments")) || [];
+    const confirmDelete = confirm("Are you sure you want to cancel this appointment?");
 
+    if (!confirmDelete) {
+        return;
+    }
 
+    appointments.splice(index, 1);
 
-    appointments.splice(index,1);
-
-
-
-    localStorage.setItem(
-        "appointments",
-        JSON.stringify(appointments)
-    );
-
-
-
-    alert("Appointment Cancelled!");
-
-
+    localStorage.setItem("appointments", JSON.stringify(appointments));
 
     displayAppointments();
 
-
 }
+
+
+
+// ==============================
+// Load Appointments Automatically
+// ==============================
+
+displayAppointments();

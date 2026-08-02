@@ -1,69 +1,151 @@
-<section id="appointment">
 
-<h2>
-Book Appointment
-</h2>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
-<form id="appointmentForm">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Book Appointment | MediCare Hospital</title>
 
-<input 
-type="text"
-id="name"
-placeholder="Patient Name"
-required>
+    <link rel="stylesheet" href="../css/style.css">
 
+</head>
 
-<input
-type="email"
-id="email"
-placeholder="Email"
-required>
+<body>
 
+    <!-- Header -->
 
+    <header>
 
-<select id="doctor">
+        <div class="logo">
+            🏥 MediCare Hospital
+        </div>
 
-<option>
-Dr. Sharma - Cardiologist
-</option>
+        <nav>
 
-<option>
-Dr. Priya - Dermatologist
-</option>
+            <a href="../index.html">Home</a>
 
-<option>
-Dr. Rahul - Neurologist
-</option>
+            <a href="doctors.html">Doctors</a>
 
-</select>
+            <a href="appointment.html" class="active">Book Appointment</a>
 
+            <a href="appointments.html">My Appointments</a>
 
+        </nav>
 
-<input
-type="date"
-id="date"
-required>
+    </header>
 
+    <!-- Page Title -->
 
+    <section class="page-title">
 
-<input
-type="time"
-id="time"
-required>
+        <h1>Book an Appointment</h1>
 
+        <p>
+            Fill in your details below to schedule your appointment.
+        </p>
 
+    </section>
 
-<button type="submit">
-Book Appointment
-</button>
+    <section class="appointment-section">
 
+    <form id="appointmentForm">
 
-</form>
+        <h2>📅 Book Your Appointment</h2>
 
+        <div class="form-group">
+
+            <label for="name">👤 Patient Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="email">📧 Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="doctor">🩺 Select Doctor</label>
+
+            <select id="doctor" required>
+
+                <option value="">Choose Doctor</option>
+
+                <option>Dr. Sharma - Cardiologist</option>
+
+                <option>Dr. Priya - Dermatologist</option>
+
+                <option>Dr. Rahul - Neurologist</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="date">📅 Appointment Date</label>
+
+            <input
+                type="date"
+                id="date"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="time">⏰ Appointment Time</label>
+
+            <input
+                type="time"
+                id="time"
+                required>
+
+        </div>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
 
 </section>
 
+    <!-- Footer -->
 
-<script src="../js/script.js"></script>
+    <footer>
+
+        <h3>MediCare Hospital</h3>
+
+        <p>
+            Providing Quality Healthcare Services
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
+
