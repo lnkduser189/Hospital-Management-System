@@ -85,3 +85,72 @@ button{
     cursor:pointer;
 
 }
+
+#doctors{
+
+    padding:40px;
+
+}
+
+
+#doctors h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.doctor-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.doctor-card{
+
+
+    background:white;
+
+    width:260px;
+
+    padding:25px;
+
+    border-radius:10px;
+
+
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+
+    text-align:center;
+
+
+}
+
+
+
+.doctor-card h3{
+
+    color:#0066cc;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.doctor-card p{
+
+    margin:10px;
+
+}
