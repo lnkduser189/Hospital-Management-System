@@ -214,3 +214,56 @@ button{
 
 
 }
+#appointments{
+
+    padding:40px;
+
+}
+
+
+
+#appointmentList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+.appointment-card{
+
+
+    background:white;
+
+    width:350px;
+
+    padding:20px;
+
+    margin:15px;
+
+    border-radius:10px;
+
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+
+}
+
+
+
+.appointment-card h3{
+
+    color:#0066cc;
+
+}
+
+
+
+.appointment-card p{
+
+    margin:8px;
+
+}
