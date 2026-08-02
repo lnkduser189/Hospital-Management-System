@@ -267,3 +267,27 @@ button{
     margin:8px;
 
 }
+.appointment-card button{
+
+
+    background:red;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+
+}
+
+
+.appointment-card button:hover{
+
+    background:darkred;
+
+}

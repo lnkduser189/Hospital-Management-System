@@ -105,7 +105,7 @@ function displayAppointments(){
 
 
 
-    appointments.forEach(function(app){
+    appointments.forEach(function(app,index){
 
 
 
@@ -120,23 +120,26 @@ function displayAppointments(){
 
         card.innerHTML=`
 
-        <h3>${app.name}</h3>
+<h3>${app.name}</h3>
 
-        <p>
-        Doctor: ${app.doctor}
-        </p>
+<p>
+Doctor: ${app.doctor}
+</p>
+
+<p>
+Date: ${app.date}
+</p>
+
+<p>
+Time: ${app.time}
+</p>
 
 
-        <p>
-        Date: ${app.date}
-        </p>
+<button onclick="cancelAppointment(${index})">
+Cancel Appointment
+</button>
 
-
-        <p>
-        Time: ${app.time}
-        </p>
-
-        `;
+`;
 
 
 
@@ -155,3 +158,30 @@ function displayAppointments(){
 // Display saved appointments when page loads
 
 displayAppointments();
+function cancelAppointment(index){
+
+
+    let appointments =
+    JSON.parse(localStorage.getItem("appointments")) || [];
+
+
+
+    appointments.splice(index,1);
+
+
+
+    localStorage.setItem(
+        "appointments",
+        JSON.stringify(appointments)
+    );
+
+
+
+    alert("Appointment Cancelled!");
+
+
+
+    displayAppointments();
+
+
+}
