@@ -291,3 +291,168 @@ button{
     background:darkred;
 
 }
+/* Doctor Images */
+
+.doctor-card img{
+
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.doctor-card{
+
+
+    transition:0.3s;
+
+}
+
+
+
+.doctor-card:hover{
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+
+
+/* Logo */
+
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* Footer */
+
+
+footer{
+
+    background:#0066cc;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+footer p{
+
+    margin:10px;
+
+}
+
+
+
+
+
+/* Mobile Responsive */
+
+
+@media(max-width:700px){
+
+
+header{
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+nav{
+
+
+    margin-top:15px;
+
+
+}
+
+
+nav a{
+
+
+    display:block;
+
+    margin:10px;
+
+
+}
+
+
+
+.hero h2{
+
+
+    font-size:28px;
+
+
+}
+
+
+
+.doctor-container{
+
+
+    flex-direction:column;
+
+    align-items:center;
+
+
+}
+
+
+
+#appointmentForm{
+
+
+    width:90%;
+
+
+}
+
+
+
+.appointment-card{
+
+
+    width:90%;
+
+
+}
+
+
+}
