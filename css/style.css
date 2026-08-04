@@ -1,9 +1,12 @@
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-
-
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -17,20 +20,45 @@ html{
 }
 
 body{
-    background:#f5f9fc;
+
+    background:#f7fbff;
     color:#333;
-    line-height:1.6;
+    overflow-x:hidden;
+
 }
 
+/* =====================================================
+   CUSTOM SCROLLBAR
+===================================================== */
 
-/* ===========================
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf4ff;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0b74de;
+    border-radius:20px;
+
+}
+
+/* =====================================================
    HEADER
-=========================== */
+===================================================== */
 
 header{
 
-    background:#0b74de;
-    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
 
     display:flex;
     justify-content:space-between;
@@ -38,97 +66,142 @@ header{
 
     padding:18px 8%;
 
-    position:sticky;
-    top:0;
+    background:rgba(11,116,222,.88);
 
-    z-index:1000;
+    backdrop-filter:blur(12px);
 
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 
 }
 
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo{
 
-    font-size:28px;
+    font-size:30px;
     font-weight:700;
+    color:white;
+
+    animation:logoFloat 3s ease-in-out infinite;
 
 }
 
-
-
-/* ===========================
-   NAVIGATION
-=========================== */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 nav{
 
     display:flex;
-    gap:15px;
+    gap:18px;
 
 }
 
-
 nav a{
 
+    color:white;
 
     text-decoration:none;
-    color:white;
 
     padding:10px 18px;
 
-    border-radius:8px;
+    border-radius:10px;
 
-    transition:.3s;
+    transition:.35s;
 
     font-weight:500;
 
 }
 
-
 nav a:hover{
 
     background:white;
+
     color:#0b74de;
 
-}
+    transform:translateY(-3px);
 
+}
 
 nav a.active{
 
     background:white;
+
     color:#0b74de;
 
-    font-weight:bold;
+    font-weight:600;
 
 }
 
-
-/* ===========================
-   HERO SECTION
-
-   =========================== */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
 
-
+    position:relative;
 
     display:flex;
 
     justify-content:space-between;
 
-
-
     align-items:center;
 
-    padding:70px 8%;
+    padding:90px 8%;
 
-    min-height:80vh;
+    min-height:88vh;
 
-    gap:60px;
+    overflow:hidden;
 
 }
 
+/* Decorative Circles */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:#d9ecff;
+
+    top:-180px;
+    right:-150px;
+
+    z-index:-1;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:#c4e1ff;
+
+    left:-120px;
+    bottom:-120px;
+
+    z-index:-1;
+
+}
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
 
 .hero-content{
 
@@ -136,58 +209,67 @@ nav a.active{
 
 }
 
-
 .hero-content h1{
 
-    font-size:50px;
+    font-size:58px;
 
     color:#0b74de;
 
     margin-bottom:20px;
 
-}
+    line-height:1.2;
 
+}
 
 .hero-content p{
 
     font-size:18px;
 
-    margin-bottom:30px;
-
     color:#555;
+
+    margin-bottom:35px;
+
+    max-width:600px;
 
 }
 
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .hero-content button{
 
-    padding:15px 35px;
+    padding:15px 36px;
 
     border:none;
 
-    border-radius:8px;
+    border-radius:50px;
 
-    background:#0b74de;
+    background:linear-gradient(135deg,#0b74de,#4ca7ff);
 
     color:white;
 
     font-size:17px;
 
+    font-weight:600;
+
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
 
 }
-
 
 .hero-content button:hover{
 
-    background:#065cb1;
+    transform:translateY(-6px);
 
-    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(11,116,222,.35);
 
 }
 
+/* =====================================================
+   HERO IMAGE
+===================================================== */
 
 .hero-image{
 
@@ -197,135 +279,79 @@ nav a.active{
 
 }
 
-
 .hero-image img{
 
     width:100%;
 
-    max-width:500px;
+    max-width:520px;
 
-    border-radius:15px;
+    border-radius:20px;
 
-    box-shadow:0 12px 25px rgba(0,0,0,.2);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+
+    animation:floatImage 4s ease-in-out infinite;
 
 }
 
-
-/* ===========================
+/* =====================================================
    PAGE TITLE
-=========================== */
+===================================================== */
 
 .page-title{
 
+    position:relative;
+
+    overflow:hidden;
+
     text-align:center;
 
-    padding:60px 20px;
+    padding:80px 20px;
 
-    background:#eaf4ff;
+    background:linear-gradient(135deg,#eaf4ff,#f7fbff);
 
 }
-
 
 .page-title h1{
 
+    font-size:44px;
+
     color:#0b74de;
 
-    font-size:40px;
-
-    margin-bottom:10px;
+    margin-bottom:15px;
 
 }
-
 
 .page-title p{
 
-    color:#555;
-
     font-size:18px;
+
+    color:#555;
 
 }
 
-
-/* ===========================
+/* =====================================================
    SERVICES
-=========================== */
+===================================================== */
 
 .services{
 
-    padding:70px 8%;
+    padding:90px 8%;
 
 }
-
 
 .services h2{
 
     text-align:center;
 
-    font-size:36px;
-
-    margin-bottom:40px;
+    font-size:40px;
 
     color:#0b74de;
 
-}
+    margin-bottom:55px;
 
+}
 
 .service-container{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-
-.service-card{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-    box-shadow:0 5px 18px rgba(0,0,0,.1);
-
-    transition:.3s;
-
-}
-
-
-.service-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-
-.service-card h3{
-
-    margin-bottom:15px;
-
-    color:#0b74de;
-
-}
-
-
-/* ===========================
-   DOCTOR SECTION
-=========================== */
-
-.doctors{
-
-    padding:70px 8%;
-
-}
-
-
-.doctor-container{
 
     display:grid;
 
@@ -333,53 +359,215 @@ nav a.active{
 
     gap:35px;
 
-
-
-
 }
 
+/* =====================================================
+   SERVICE CARD
+===================================================== */
 
+.service-card{
 
+    position:relative;
 
-.doctor-card{
-
+    overflow:hidden;
 
     background:white;
 
-    border-radius:15px;
+    border-radius:20px;
+
+    padding:35px;
 
     text-align:center;
 
-    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
+    transition:.45s;
+
+    cursor:pointer;
+
+}
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-120%;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.6),
+        transparent
+    );
+
+    transition:.7s;
+
+}
+
+.service-card:hover::before{
+
+    left:120%;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-14px);
+
+    box-shadow:0 20px 45px rgba(11,116,222,.18);
+
+}
+
+.service-card h3{
+
+    margin-bottom:15px;
+
+    color:#0b74de;
 
     transition:.3s;
 
 }
 
+.service-card:hover h3{
 
-.doctor-card:hover{
-
-    transform:translateY(-8px);
+    letter-spacing:1px;
 
 }
 
+.service-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+/* =====================================================
+   DOCTOR SECTION
+===================================================== */
+
+.doctors{
+
+    padding:90px 8%;
+
+    background:#f8fbff;
+
+}
+
+.doctors h2{
+
+    text-align:center;
+
+    font-size:40px;
+
+    color:#0b74de;
+
+    margin-bottom:55px;
+
+}
+
+.doctor-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:35px;
+
+}
+
+.doctor-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+
+    transition:.45s;
+
+    cursor:pointer;
+
+}
+
+.doctor-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 22px 45px rgba(11,116,222,.20);
+
+}
+
+.doctor-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.doctor-card:hover::before{
+
+    left:120%;
+
+}
 
 .doctor-card img{
 
-    width:160px;
+    width:170px;
 
-    height:160px;
+    height:170px;
 
     object-fit:cover;
 
     border-radius:50%;
 
+    border:6px solid #eaf4ff;
+
+    transition:.45s;
+
     margin-bottom:20px;
 
 }
 
+.doctor-card:hover img{
+
+    transform:scale(1.08);
+
+}
 
 .doctor-card h2{
 
@@ -389,57 +577,63 @@ nav a.active{
 
 }
 
-
 .doctor-card h4{
 
     color:#666;
+
+    font-weight:500;
 
     margin-bottom:15px;
 
 }
 
-
-
 .doctor-card p{
+
+    color:#555;
 
     margin-bottom:10px;
 
-}
+    line-height:1.7;
 
+}
 
 .doctor-card button{
 
-    margin-top:15px;
+    margin-top:20px;
 
-    background:#0b74de;
-
-    color:white;
+    padding:13px 30px;
 
     border:none;
 
-    padding:12px 25px;
+    border-radius:40px;
 
-    border-radius:8px;
+    background:linear-gradient(135deg,#0b74de,#4ca7ff);
+
+    color:white;
 
     cursor:pointer;
 
-    transition:.3s;
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
 
 }
-
 
 .doctor-card button:hover{
 
-    background:#065cb1;
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(11,116,222,.30);
 
 }
-/* ===========================
-   APPOINTMENT SECTION
-=========================== */
+
+/* =====================================================
+   APPOINTMENT FORM
+===================================================== */
 
 .appointment-section{
-
-    min-height:80vh;
 
     display:flex;
 
@@ -447,29 +641,31 @@ nav a.active{
 
     align-items:center;
 
-    padding:60px 20px;
+    min-height:85vh;
 
-    background:linear-gradient(135deg,#eef7ff,#d9ecff);
+    padding:80px 20px;
+
+    background:linear-gradient(135deg,#eef7ff,#d7ebff);
 
 }
-
 
 #appointmentForm{
 
     width:100%;
 
-    max-width:700px;
+    max-width:720px;
 
     background:white;
 
-    padding:40px;
+    padding:45px;
 
-    border-radius:20px;
+    border-radius:25px;
 
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+
+    animation:zoomIn .8s ease;
 
 }
-
 
 #appointmentForm h2{
 
@@ -477,32 +673,29 @@ nav a.active{
 
     color:#0b74de;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
 
-    font-size:32px;
+    font-size:34px;
 
 }
-
 
 .form-group{
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 
 }
-
 
 .form-group label{
 
     display:block;
 
-    font-weight:600;
-
     margin-bottom:8px;
 
     color:#444;
 
-}
+    font-weight:600;
 
+}
 
 .form-group input,
 .form-group select{
@@ -511,18 +704,17 @@ nav a.active{
 
     padding:15px;
 
-    border:2px solid #d7d7d7;
+    border:2px solid #d8d8d8;
 
-    border-radius:10px;
-
-    font-size:16px;
-
-    transition:.3s;
+    border-radius:12px;
 
     background:#fafafa;
 
-}
+    font-size:16px;
 
+    transition:.35s;
+
+}
 
 .form-group input:focus,
 .form-group select:focus{
@@ -531,61 +723,57 @@ nav a.active{
 
     background:white;
 
-    box-shadow:0 0 10px rgba(11,116,222,.25);
+    box-shadow:0 0 12px rgba(11,116,222,.18);
 
     outline:none;
 
 }
 
-
 #appointmentForm button{
 
     width:100%;
 
-    margin-top:20px;
+    margin-top:15px;
 
     padding:16px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:50px;
 
-    background:#0b74de;
+    background:linear-gradient(135deg,#0b74de,#4ca7ff);
 
     color:white;
 
     font-size:18px;
 
-    font-weight:bold;
+    font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
 
 }
-
 
 #appointmentForm button:hover{
 
-    background:#065cb1;
+    transform:translateY(-4px);
 
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 20px rgba(11,116,222,.3);
+    box-shadow:0 18px 30px rgba(11,116,222,.25);
 
 }
-/* ===========================
-   APPOINTMENTS PAGE
-=========================== */
+
+/* =====================================================
+   APPOINTMENT LIST
+===================================================== */
 
 .appointments-section{
 
-    padding:70px 8%;
+    padding:90px 8%;
 
+    min-height:80vh;
 
 }
-
-
 
 #appointmentList{
 
@@ -593,39 +781,31 @@ nav a.active{
 
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-    gap:25px;
+    gap:30px;
 
 }
-
-
-
-
 
 .appointment-card{
 
     background:white;
 
-    width:350px;
+    border-radius:20px;
 
-    padding:20px;
+    padding:25px;
 
-    margin:15px;
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
 
-    border-radius:15px;
-
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
-
-    transition:.3s;
+    transition:.35s;
 
 }
-
 
 .appointment-card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 38px rgba(11,116,222,.18);
 
 }
-
 
 .appointment-card h3{
 
@@ -635,7 +815,6 @@ nav a.active{
 
 }
 
-
 .appointment-card p{
 
     margin-bottom:10px;
@@ -644,65 +823,61 @@ nav a.active{
 
 }
 
-
 .appointment-card button{
+
+    width:100%;
 
     margin-top:15px;
 
-    width:100%;
+    padding:13px;
+
+    border:none;
+
+    border-radius:40px;
 
     background:#dc3545;
 
     color:white;
 
-    border:none;
-
-    padding:12px;
-
-    border-radius:8px;
+    font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
 
 }
-
 
 .appointment-card button:hover{
 
     background:#b02a37;
 
+    transform:translateY(-3px);
+
 }
 
-
-
-/* ===========================
+/* =====================================================
    EMPTY STATE
-=========================== */
+===================================================== */
 
 .no-appointments{
 
-    text-align:center;
-
     background:white;
 
-    padding:40px;
+    padding:45px;
 
-    border-radius:15px;
+    border-radius:20px;
 
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-
-    font-size:20px;
+    text-align:center;
 
     color:#666;
 
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
-
-
-/* ===========================
+/* =====================================================
    FOOTER
-=========================== */
+===================================================== */
 
 footer{
 
@@ -712,56 +887,266 @@ footer{
 
     text-align:center;
 
-    padding:30px 20px;
+    padding:45px 20px;
 
-    margin-top:60px;
+    margin-top:80px;
 
 }
-
 
 footer h3{
 
     margin-bottom:10px;
 
-}
+    font-size:26px;
 
+}
 
 footer p{
 
-    margin-top:5px;
+    margin-top:6px;
+
+    opacity:.95;
+
+}
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 
 }
 
+@keyframes logoFloat{
 
+    0%{
+        transform:translateY(0px);
+    }
 
-/* ===========================
+    50%{
+        transform:translateY(-5px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes fadeRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/* =====================================================
+   SCROLL ANIMATION CLASSES
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* =====================================================
+   HOVER EFFECTS
+===================================================== */
+
+button{
+
+    transition:.35s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+img{
+
+    user-select:none;
+
+}
+
+/* =====================================================
    RESPONSIVE DESIGN
-=========================== */
+===================================================== */
 
-@media(max-width:900px){
+@media(max-width:1100px){
 
 .hero{
 
-    flex-direction:column;
-
-    text-align:center;
+    gap:40px;
 
 }
 
 .hero-content h1{
 
+    font-size:48px;
+
+}
+
+.hero-image img{
+
+    max-width:430px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+header{
+
+    padding:18px 5%;
+
+}
+
+.hero{
+
+    flex-direction:column-reverse;
+
+    text-align:center;
+
+    padding:70px 5%;
+
+}
+
+.hero-content{
+
+    margin-top:30px;
+
+}
+
+.hero-content h1{
+
+    font-size:42px;
+
+}
+
+.hero-content p{
+
+    margin:auto;
+
+    margin-bottom:30px;
+
+}
+
+.page-title h1{
+
     font-size:38px;
 
 }
 
-.hero-image{
+.services h2,
 
-    margin-top:40px;
+.doctors h2{
+
+    font-size:36px;
 
 }
 
 }
-
 
 @media(max-width:768px){
 
@@ -769,9 +1154,15 @@ header{
 
     flex-direction:column;
 
-    gap:20px;
+    gap:18px;
 
     padding:20px;
+
+}
+
+.logo{
+
+    font-size:26px;
 
 }
 
@@ -781,6 +1172,46 @@ nav{
 
     justify-content:center;
 
+    gap:10px;
+
+}
+
+nav a{
+
+    padding:10px 16px;
+
+    font-size:15px;
+
+}
+
+.hero{
+
+    min-height:auto;
+
+}
+
+.hero-content h1{
+
+    font-size:36px;
+
+}
+
+.hero-content p{
+
+    font-size:17px;
+
+}
+
+.hero-image img{
+
+    max-width:360px;
+
+}
+
+.page-title{
+
+    padding:60px 20px;
+
 }
 
 .page-title h1{
@@ -789,20 +1220,31 @@ nav{
 
 }
 
-.services h2{
+.services,
 
-    font-size:30px;
+.doctors,
+
+.appointments-section{
+
+    padding:70px 5%;
+
+}
+
+.service-container,
+
+.doctor-container{
+
+    grid-template-columns:1fr;
 
 }
 
 #appointmentForm{
 
-    padding:25px;
+    padding:30px;
 
 }
 
 }
-
 
 @media(max-width:480px){
 
@@ -824,9 +1266,21 @@ nav{
 
 }
 
+.hero-content button{
+
+    width:100%;
+
+}
+
+.hero-image img{
+
+    max-width:280px;
+
+}
+
 .page-title{
 
-    padding:40px 15px;
+    padding:45px 15px;
 
 }
 
@@ -836,29 +1290,25 @@ nav{
 
 }
 
-.logo{
+.page-title p{
 
-    font-size:22px;
-
-}
-
-nav{
-
-    gap:8px;
+    font-size:15px;
 
 }
 
-nav a{
+.services h2,
 
-    padding:8px 12px;
+.doctors h2{
 
-    font-size:14px;
+    font-size:30px;
 
 }
+
+.service-card,
 
 .doctor-card{
 
-    padding:20px;
+    padding:22px;
 
 }
 
@@ -870,6 +1320,74 @@ nav a{
 
 }
 
+#appointmentForm{
+
+    padding:22px;
+
 }
 
+#appointmentForm h2{
 
+    font-size:26px;
+
+}
+
+.form-group input,
+
+.form-group select{
+
+    padding:13px;
+
+}
+
+.appointment-card{
+
+    padding:18px;
+
+}
+
+footer{
+
+    padding:35px 15px;
+
+}
+
+footer h3{
+
+    font-size:22px;
+
+}
+
+footer p{
+
+    font-size:14px;
+
+}
+
+}
+
+/* =====================================================
+   OPTIONAL GLASS EFFECT
+===================================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+}
+
+/* =====================================================
+   SELECTION COLOR
+===================================================== */
+
+::selection{
+
+    background:#0b74de;
+
+    color:white;
+
+}
